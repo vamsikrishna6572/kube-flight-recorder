@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+    "log"
+
+    "github.com/vamsikrishna6572/kube-flight-recorder/pkg/ebpf/hello"
+)
 
 func main() {
-    fmt.Println("Kube Flight Recorder Agent Starting...")
+    log.Println("Starting Kube Flight Recorder: Hello eBPF Test...")
+    if err := hello.Run(); err != nil {
+        log.Fatalf("error: %v", err)
+    }
 }
